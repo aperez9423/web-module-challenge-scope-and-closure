@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+   A closure combines a function with references found in the outer scopes. This allows you to access an outer function scope using an inner function scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -53,18 +56,27 @@ function personalDice(name){
   }
 }
 
-const dansRoll = personalDice("Dan");
+//OuterScope
+const dansRoll = personalDice("Dan"); //references the inner function personalDice
 
-const zoesRoll = personalDice("Zoe");
+const zoesRoll = personalDice("Zoe"); //references the inner function personalDice
 
 
-dansRoll();
-dansRoll();
+dansRoll(); //will initialize the inner function personalDice with the name argument "Dan".
+dansRoll(); //will initialize the inner function personalDice with the name argument "Dan".
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+   The closure occurs in the outer scope of this code.. I can tell because the dansRoll function references the inner function personalDice before initializing the function. This happens each time the dansRoll function is used.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+   
+   The name of the person rolling stays the same. In this example, Dan would remain the same while the number rolled could change. 
+
+c. What is the lexical scope of `newRoll`?  
+
+   The lexical scope of newRoll is the functional scope.
 
 ### Task 3 - Stretch Goals
 
