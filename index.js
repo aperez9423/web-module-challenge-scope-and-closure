@@ -85,18 +85,21 @@ finalScore(inning, 9) might return:
 
 function finalScore(inning, numberOfInnings){
   let homeTeam = []; 
-  let awayTeam = []; 
- 
+  let awayTeam = [];
+  const add = (a,b) => a + b;
+
   for (let i = 0; i < numberOfInnings; i++) {
-    homeTeam.push(inning());
-    awayTeam.push(inning());
+    let homePoints= homeTeam.push(inning());
+    let awayPoints= awayTeam.push(inning());
   } 
- 
-  return "Home Team: " + homeTeam + " Away Team: " + awayTeam;
+  
+  const homeTotal = homeTeam.reduce(add);
+  const awayTotal = awayTeam.reduce(add);
+
+  return "Home: " + homeTotal + " Away: " + awayTotal;
 }
 
 console.log(finalScore(inning, 9));
-
 
   /*Code Here*/
 
@@ -122,8 +125,37 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreBoard(inning, numberOfInnings){
+  let homeTeam = []; 
+  let awayTeam = [];
+  const add = (a,b) => a + b;
+  
+  function inningTotals () {
+    console.log ("1st Inning:" + homeTeam[0] + " - " + awayTeam [0]);
+    console.log ("2nd Inning: " + homeTeam[1] + " - " + awayTeam[1]);
+    console.log ("3rd Inning: " + homeTeam[2] + " - " + awayTeam[2]);
+    console.log ("4th Inning: " + homeTeam[3] + " - " + awayTeam[3]);
+    console.log ("5th Inning: " + homeTeam[4] + " - " + awayTeam[4]);
+    console.log ("6th Inning: " + homeTeam[5] + " - " + awayTeam[5]);
+    console.log ("7th Inning: " + homeTeam[6] + " - " + awayTeam[6]);
+    console.log ("8th Inning: " + homeTeam[7] + " - " + awayTeam[7]);
+    console.log ("9th Inning: " + homeTeam[8] + " - " + awayTeam[8]);
+  }
+
+  for (let i = 0; i < numberOfInnings; i++) {
+    let homePoints= homeTeam.push(inning());
+    let awayPoints= awayTeam.push(inning());
+  } 
+
+  const homeTotal = homeTeam.reduce(add);
+  const awayTotal = awayTeam.reduce(add);
+
+  function finalScore(inning, numberOfInnings){
+
+    return "Final Score: " + homeTotal + " - " + awayTotal;
+  }
+
+  return inningTotals(), finalScore();
 }
 
-
+console.log(scoreBoard(inning, 9));
